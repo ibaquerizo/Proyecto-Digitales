@@ -1,0 +1,85 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+*/
+(header "symbol" (version "1.2"))
+(symbol
+	(rect 56 56 400 312)
+	(text "CLOCK_DIV_50" (rect 13 8 223 34)(font "Arial" ))
+	(text "inst" (rect 16 192 57 218)(font "Arial" ))
+	(port
+		(pt 0 40)
+		(input)
+		(text "CLOCK_50MHz" (rect 0 8 204 34)(font "Arial" ))
+		(text "CLOCK_50MHz" (rect 21 35 225 61)(font "Arial" ))
+		(line (pt 0 40)(pt 16 40))
+	)
+	(port
+		(pt 344 72)
+		(output)
+		(text "CLOCK_1MHz" (rect 104 8 292 34)(font "Arial" ))
+		(text "CLOCK_1MHz" (rect 164 67 323 93)(font "Arial" ))
+		(line (pt 344 72)(pt 328 72))
+	)
+	(port
+		(pt 344 96)
+		(output)
+		(text "CLOCK_100KHz" (rect 104 8 318 34)(font "Arial" ))
+		(text "CLOCK_100KHz" (rect 142 91 323 117)(font "Arial" ))
+		(line (pt 344 96)(pt 328 96))
+	)
+	(port
+		(pt 344 120)
+		(output)
+		(text "CLOCK_10KHz" (rect 104 8 303 34)(font "Arial" ))
+		(text "CLOCK_10KHz" (rect 155 115 323 141)(font "Arial" ))
+		(line (pt 344 120)(pt 328 120))
+	)
+	(port
+		(pt 344 144)
+		(output)
+		(text "CLOCK_1KHz" (rect 104 8 288 34)(font "Arial" ))
+		(text "CLOCK_1KHz" (rect 168 139 323 165)(font "Arial" ))
+		(line (pt 344 144)(pt 328 144))
+	)
+	(port
+		(pt 344 168)
+		(output)
+		(text "CLOCK_100Hz" (rect 104 8 299 34)(font "Arial" ))
+		(text "CLOCK_100Hz" (rect 158 163 323 189)(font "Arial" ))
+		(line (pt 344 168)(pt 328 168))
+	)
+	(port
+		(pt 344 192)
+		(output)
+		(text "CLOCK_10Hz" (rect 104 8 284 34)(font "Arial" ))
+		(text "CLOCK_10Hz" (rect 171 187 323 213)(font "Arial" ))
+		(line (pt 344 192)(pt 328 192))
+	)
+	(port
+		(pt 344 216)
+		(output)
+		(text "CLOCK_1Hz" (rect 104 8 269 34)(font "Arial" ))
+		(text "CLOCK_1Hz" (rect 184 211 323 237)(font "Arial" ))
+		(line (pt 344 216)(pt 328 216))
+	)
+	(drawing
+		(rectangle (rect 8 8 336 240))
+	)
+)

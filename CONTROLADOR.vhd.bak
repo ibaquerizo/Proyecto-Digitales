@@ -1,0 +1,120 @@
+--By macaagui
+LIBRARY IEEE;
+USE  IEEE.STD_LOGIC_1164.all;
+USE  IEEE.STD_LOGIC_UNSIGNED.all;
+
+
+ENTITY CONTROLADOR IS
+	PORT(clock,resetn,On_Off,Run_Prog,P,TA_TR,T60,TA,TR,sum: IN STD_LOGIC;
+		 --Verde_Vehiculo,Amarillo_Vehiculo,Rojo_Vehiculo,Rojo_Peaton,Verde_Peaton: OUT STD_LOGIC;
+		 semaforo: OUT STD_LOGIC_VECTOR (4 downto 0);
+		 resets: OUT STD_LOGIC_VECTOR(2 downto 0);
+		 enables: OUT STD_LOGIC_VECTOR(6 downto 0));
+END CONTROLADOR;
+
+Architecture sol of CONTROLADOR is
+Type estado is (A,B,C,D,Dy,E,Ey,F,G,H,I,J,K,L);
+SIGNAL y:estado;
+SIGNAL datain:std_logic_vector (6 downto 0);
+BEGIN
+	--En60<=enables(6);EnTa<=enables(5);EnTr<=enables(4);EnAc<=enables(3);EnTaR<=enables(2);EnTrR<=enables(1);EnDisplay<=enables(0);
+	--Reset60<=resets(2);ResetAc<=resets(1);ResetR<=resets(0);
+	PROCESS(clock,resetn)
+		BEGIN
+			if resetn='0' then y<=A;
+			elsif (clock'event and clock='1')then
+				case y is
+					when A=>	if On_Off='1' then y<=B;else y<=A;end if;
+					when B=>
+						if On_Off='0' then y<=A;
+						elsif Run_Prog='1' then y<=F;
+						elsif Run_Prog='0' then y<=C;
+						else y<=B;
+						end if;
+					when C=>
+						if On_Off='0' then y<=A;
+						elsif Run_Prog='1' then y<=B;
+						elsif P='0' and T60='1' then y<=D;
+						elsif P='1' and T60='0' then y<=D;
+						elsif P='1' and T60='1' then y<=D;
+						else y<=C;
+						end if;
+					when D=>
+						if On_Off='0' then y<=A;
+						elsif Run_Prog='1' then y<=B;
+						elsif TA='1' then y<=Dy;
+						else y<=D;
+						end if;
+					when Dy=> y<=E;
+					when E=>
+						if On_Off='0' then y<=A;
+						elsif Run_Prog='1' then y<=B;
+						elsif TR='1' then y<=Ey;
+						else y<=E;
+						end if;
+					when Ey=> y<=C;
+					when F=>
+						if On_Off='0' then y<=A;
+						elsif Run_Prog='0' then y<=B;
+						elsif TA_TR='0' then y<=G;
+						elsif TA_TR='1' then y<=H;
+						else y<=F;
+						end if;
+					when G=>
+						if On_Off='0' then y<=A;
+						elsif Run_Prog='0' then y<=B;
+						elsif TA_TR='1' and P='0'then y<=H;
+						elsif P='1' then y<=I;
+						else y<=G;
+						end if;
+					when H=>
+						if On_Off='0' then y<=A;
+						elsif Run_Prog='0' then y<=B;
+						elsif P='1' then y<=J;
+						elsif TA_TR='0' and P='0' then y<=G;
+						else y<=H;
+						end if;
+					when I=>	if P='0' then y<=K;else y<=I;end if;
+					when J=>	if P='0' then y<=L;else y<=J;end if;
+					when K=> if sum='1' then y<=G;else y<=K;end if;
+					when L=> if sum='1' then y<=H;else y<=L;end if;
+				end case;
+			end if;
+	END PROCESS;
+	PROCESS(y,Run_Prog,TA,TR,TA_TR,P)
+	BEGIN
+	semaforo<="00000";
+	enables<="0000000";
+	resets<="000";
+	case y is
+		when A=>semaforo<="00000";
+		when B=>
+			if Run_Prog = '0' then resets<="100";end if;
+		when C=>
+			semaforo<="10010";
+			enables<="1000000";
+			
+		when D=>
+			semaforo<="01010";
+			enables<="1100000";
+			if TA='1' then enables<="0100000";end if;
+		when Dy=>semaforo<="01010";resets<="100";enables<="1000000";
+		
+		when E=>
+			semaforo<="00101";
+			enables<="1010000";
+			if TR='1' then enables<="0100000";end if;
+		when Ey=>semaforo<="00101";resets<="100";enables<="1000000";
+		
+		when F=>resets<="011";
+		when G=>
+			if TA_TR='1' and P='0' then resets<="010";end if;
+		when H=>
+			if TA_TR='0' and P='0' then resets<="010";end if;
+		when I=>
+		when J=>
+		when K=>enables<="0001101";		
+		when L=>enables<="0001011";
+	end case;
+	END PROCESS;
+end sol;

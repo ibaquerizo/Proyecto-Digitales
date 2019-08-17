@@ -1,0 +1,113 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+*/
+(header "symbol" (version "1.2"))
+(symbol
+	(rect 56 56 320 456)
+	(text "CONTROLADOR" (rect 13 8 239 34)(font "Arial" ))
+	(text "inst" (rect 8 368 49 394)(font "Arial" ))
+	(port
+		(pt 0 40)
+		(input)
+		(text "clock" (rect 0 8 61 34)(font "Arial" ))
+		(text "clock" (rect 21 35 82 61)(font "Arial" ))
+		(line (pt 0 40)(pt 16 40))
+	)
+	(port
+		(pt 0 72)
+		(input)
+		(text "On_Off" (rect 0 8 90 34)(font "Arial" ))
+		(text "On_Off" (rect 21 67 111 93)(font "Arial" ))
+		(line (pt 0 72)(pt 16 72))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "Run_Prog" (rect 0 8 122 34)(font "Arial" ))
+		(text "Run_Prog" (rect 21 107 143 133)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112))
+	)
+	(port
+		(pt 0 152)
+		(input)
+		(text "P" (rect 0 8 18 34)(font "Arial" ))
+		(text "P" (rect 21 147 39 173)(font "Arial" ))
+		(line (pt 0 152)(pt 16 152))
+	)
+	(port
+		(pt 0 192)
+		(input)
+		(text "TA_TR" (rect 0 8 90 34)(font "Arial" ))
+		(text "TA_TR" (rect 21 187 111 213)(font "Arial" ))
+		(line (pt 0 192)(pt 16 192))
+	)
+	(port
+		(pt 0 232)
+		(input)
+		(text "T60" (rect 0 8 48 34)(font "Arial" ))
+		(text "T60" (rect 21 227 69 253)(font "Arial" ))
+		(line (pt 0 232)(pt 16 232))
+	)
+	(port
+		(pt 0 272)
+		(input)
+		(text "TA" (rect 0 8 36 34)(font "Arial" ))
+		(text "TA" (rect 21 267 57 293)(font "Arial" ))
+		(line (pt 0 272)(pt 16 272))
+	)
+	(port
+		(pt 0 312)
+		(input)
+		(text "TR" (rect 0 8 38 34)(font "Arial" ))
+		(text "TR" (rect 21 307 59 333)(font "Arial" ))
+		(line (pt 0 312)(pt 16 312))
+	)
+	(port
+		(pt 0 344)
+		(input)
+		(text "sum" (rect 0 8 49 34)(font "Arial" ))
+		(text "sum" (rect 21 339 70 365)(font "Arial" ))
+		(line (pt 0 344)(pt 16 344))
+	)
+	(port
+		(pt 264 40)
+		(output)
+		(text "semaforo[4..0]" (rect 56 8 229 34)(font "Arial" ))
+		(text "semaforo[4..0]" (rect 97 35 243 61)(font "Arial" ))
+		(line (pt 264 40)(pt 248 40)(line_width 3))
+	)
+	(port
+		(pt 264 176)
+		(output)
+		(text "resets[2..0]" (rect 56 8 190 34)(font "Arial" ))
+		(text "resets[2..0]" (rect 130 171 243 197)(font "Arial" ))
+		(line (pt 264 176)(pt 248 176)(line_width 3))
+	)
+	(port
+		(pt 264 304)
+		(output)
+		(text "enables[4..0]" (rect 56 8 208 34)(font "Arial" ))
+		(text "enables[4..0]" (rect 115 299 243 325)(font "Arial" ))
+		(line (pt 264 304)(pt 248 304)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 1 1 273 401))
+	)
+)

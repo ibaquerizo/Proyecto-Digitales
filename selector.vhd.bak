@@ -1,0 +1,16 @@
+library ieee;
+use ieee.std_logic_1164.all;
+USE IEEE.STD_LOGIC_unsigned.ALL;
+
+Entity selector is
+	Port(	w1: in std_logic_vector(5 downto 0);
+			w2: in std_logic_vector(5 downto 0);
+			s:  in std_logic;
+			Q: out std_logic_vector(5 downto 0););
+end selector;
+
+Architecture sol of selector is
+BEGIN
+	if s<='1' then Q<=w2;
+	else Q<=w1;
+end sol;
